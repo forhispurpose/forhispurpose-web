@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prayer Hub — For His Purpose</title>
+<meta name="description" content="Submit a prayer request, explore our prayer focus, read prayer testimonies, and access fasting resources.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">FHP</span><span>For His Purpose<br><small>The Purpose Generation</small></span></a>
+    <nav class="top-links">
+      <a href="about.html" class="nav-link">About</a>
+      <a href="bible-study.html" class="nav-link">Bible Study</a>
+      <a href="mentorship.html" class="nav-link">Mentorship</a>
+      <a href="podcast.html" class="nav-link">Podcast</a>
+    </nav>
+    <div class="header-cta">
+      <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">&#9789;</button>
+      <a href="community.html" class="btn btn-clay btn-sm">Join The Community</a>
+      <button class="menu-toggle" aria-label="Open menu" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mega-menu" id="megaMenu">
+  <div class="mega-inner container">
+    <div class="mega-brand">
+      <div class="footer-brand" style="color:var(--ink);">For His Purpose</div>
+      <p style="color:var(--ink-soft); max-width:280px;">Yielded to purpose, raising a generation flourishing in faith — a Christ-centred community establishing God's kingdom on earth, starting with women and the girl child.</p>
+      <div class="social-row" style="margin-top:16px;">
+        <a href="#" style="border-color:var(--line); color:var(--ink);" aria-label="Instagram">IG</a>
+        <a href="#" style="border-color:var(--line); color:var(--ink);" aria-label="YouTube">YT</a>
+        <a href="podcast.html" style="border-color:var(--line); color:var(--ink);" aria-label="Podcast">PD</a>
+        <a href="#" style="border-color:var(--line); color:var(--ink);" aria-label="TikTok">TT</a>
+        <a href="#" style="border-color:var(--line); color:var(--ink);" aria-label="Facebook">FB</a>
+        <a href="#" style="border-color:var(--line); color:var(--ink);" aria-label="WhatsApp">WA</a>
+      </div>
+    </div>
+    <div class="mega-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="daily-devotion.html">Daily Devotion</a></li>
+        <li><a href="bible-study.html">Bible Study Hub</a></li>
+        <li><a href="mentorship.html">Mentorship</a></li>
+        <li><a href="podcast.html">Podcast</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="prayer-hub.html">Prayer Hub</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="testimonies.html">Testimonies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="mega-col">
+      <h4>Gather With Us</h4>
+      <p><strong>Bible Study</strong><br>Tuesdays &middot; 7:00 PM WAT &middot; Virtual</p>
+      <p><strong>Daily Devotion</strong><br>Published every morning</p>
+      <span class="tag-pill" style="display:inline-block;margin-top:6px;">Reach: Everywhere</span>
+      <p style="margin-top:20px; font-size:.85rem; color:var(--ink-soft);">info@forhispurpose.co</p>
+    </div>
+  </div>
+  <div class="mega-footer container">
+    <p class="mega-quote">&ldquo;Raising a generation that understands its identity, walks in purpose, and lives for His glory.&rdquo;</p>
+    <p class="mega-copy">&copy; <span class="js-year"></span> For His Purpose. All Rights Reserved.</p>
+  </div>
+</div>
+
+<main>
+  <section class="page-hero">
+    <div class="container center">
+      <div class="breadcrumb">Prayer Hub</div>
+      <h1>You Are Not Praying Alone</h1>
+      <p class="lede">Submit a prayer request, join our prayer focus, or read how God has answered prayers in this community.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">Submit a Request</span>
+        <h2>We Would Be Honored to Pray With You</h2>
+        <p class="lede">Every request is read by our prayer team before anything is shared publicly. You may choose to stay private.</p>
+        <ul class="check-list">
+          <li><span class="dot">✓</span><div>All requests are moderated before any public testimony is shared.</div></li>
+          <li><span class="dot">✓</span><div>You can choose "private" and it will never be published.</div></li>
+          <li><span class="dot">✓</span><div>Our team prays over every submission personally.</div></li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <h3>Prayer Request Form</h3>
+        <form data-demo-form data-endpoint="/api/prayer">
+          <div class="field"><label for="p-name">Name (or leave blank to stay anonymous)</label><input type="text" id="p-name" name="name"></div>
+          <div class="field"><label for="p-email">Email Address</label><input type="email" id="p-email" name="email" required></div>
+          <div class="field"><label for="p-request">Your Prayer Request</label><textarea id="p-request" name="request" rows="5" required></textarea></div>
+          <div class="field"><label for="p-pref">Sharing Preference</label>
+            <select id="p-pref" name="pref"><option>Keep this private — team only</option><option>Okay to share anonymously as a testimony</option></select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Submit Prayer Request</button>
+        </form>
+        <div class="form-success">Thank you — our team has received your request and is praying with you.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-clay">
+    <div class="container">
+      <div class="center mb-lg"><span class="eyebrow">This Month's Focus</span><h2>Prayer Focus &amp; Fasting Resources</h2></div>
+      <div class="grid-3">
+        <div class="card reveal"><h3>Prayer Focus</h3><p>A themed prayer point our community is standing on together this month.</p></div>
+        <div class="card reveal"><h3>Fasting Guide</h3><p>A simple framework for anyone starting a season of prayer and fasting.</p></div>
+        <div class="card reveal"><h3>Answered Prayer</h3><p>Stories of how God has moved in this community — see our Testimonies page.</p><a href="testimonies.html" class="card-link">Read testimonies →</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div><div class="footer-brand">For His Purpose</div><p class="footer-tagline">Raising The Purpose Generation — establishing God's kingdom on earth by raising people who understand their identity, discover their purpose, and grow in character.</p><div class="social-row"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="TikTok">TT</a><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="Facebook">FB</a><a href="podcast.html" aria-label="Podcast">PD</a></div></div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="about.html">About Us</a></li><li><a href="daily-devotion.html">Daily Devotion</a></li><li><a href="bible-study.html">Bible Study Hub</a></li><li><a href="mentorship.html">Mentorship</a></li><li><a href="podcast.html">Podcast</a></li></ul></div>
+      <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="community.html">Community</a></li><li><a href="testimonies.html">Testimonies</a></li><li><a href="prayer-hub.html">Prayer Hub</a></li><li><a href="resources.html">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Stay Connected</h4><p style="font-size:.85rem;color:rgba(255,255,255,.6);margin-bottom:14px;">Get weekly devotions and community updates in your inbox.</p><form data-demo-form data-endpoint="/api/newsletter"><div class="field"><input type="email" name="email" placeholder="Your email address" required style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:#fff;"></div><button type="submit" class="btn btn-clay btn-sm" style="width:100%;">Subscribe</button></form><div class="form-success" style="background:rgba(255,255,255,.1); color:#fff;">Thank you — you're subscribed!</div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span class="js-year"></span> For His Purpose. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Safeguarding Statement</a></span></div>
+  </div>
+</footer>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
