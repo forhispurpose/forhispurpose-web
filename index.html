@@ -44,7 +44,6 @@
         <a href="https://www.youtube.com/@Forhispurposeofficial" target="_blank" rel="noopener" style="border-color:var(--line); color:var(--ink);" aria-label="YouTube">YT</a>
         <a href="podcast.html" style="border-color:var(--line); color:var(--ink);" aria-label="Podcast">PD</a>
         <a href="https://www.tiktok.com/@forhispurpose.co" target="_blank" rel="noopener" style="border-color:var(--line); color:var(--ink);" aria-label="TikTok">TT</a>
-        <a href="#" style="border-color:var(--line); color:var(--ink);" aria-label="Facebook">FB</a>
         <a href="https://wa.me/2348108221194" target="_blank" rel="noopener" style="border-color:var(--line); color:var(--ink);" aria-label="WhatsApp">WA</a>
         <a href="https://x.com/forhis_purpose" target="_blank" rel="noopener" style="border-color:var(--line); color:var(--ink);" aria-label="X (Twitter)">X</a>
       </div>
@@ -109,7 +108,7 @@
       <p class="lede" style="margin-left:auto;margin-right:auto;">Photos and videos from our gatherings, all in one place.</p>
       <div class="btn-row center mt-lg">
         <!-- TEGA: replace this href with the real Google Drive folder link once the founder sends it. Set the folder's sharing to "Anyone with the link can view". -->
-        <a href="#" class="btn btn-clay" id="galleryDriveLink" target="_blank" rel="noopener">See Our Gallery</a>
+        <a href="https://drive.google.com/drive/folders/1WKShqIO-j1NxWFDfS20rlRg8ZdLoknJ5?usp=sharing" class="btn btn-clay" id="galleryDriveLink" target="_blank" rel="noopener">See Our Gallery</a>
       </div>
     </div>
   </section>
@@ -173,11 +172,9 @@
       <div class="center mb-lg">
         <span class="eyebrow">A Movement For The Next Generation</span>
         <h2>The Purpose Generation</h2>
-        <p class="lede">Raising girls, teenagers, and young women who know their identity in Christ, lead with character, and carry purpose into every room they enter.</p>
+        <p class="lede">Raising young women and purpose-driven believers who know their identity in Christ, lead with character, and carry purpose into every room they enter.</p>
       </div>
-      <div class="grid-4">
-        <div class="card reveal"><h3>Girls</h3><p>Identity and confidence rooted in God's Word, from an early age.</p></div>
-        <div class="card reveal"><h3>Teenagers</h3><p>Navigating friendships, faith, and choices with purpose and clarity.</p></div>
+      <div class="grid-2" style="max-width:640px; margin-left:auto; margin-right:auto;">
         <div class="card reveal"><h3>Young Women</h3><p>Leadership, calling, and character for the next season of life.</p></div>
         <div class="card reveal"><h3>Purpose-Driven Believers</h3><p>Anyone — of any age or gender — pursuing a purposeful walk with God.</p></div>
       </div>
@@ -230,25 +227,10 @@
   <section class="section section-clay">
     <div class="container">
       <div class="center mb-lg">
-        <span class="placeholder-note">Sample testimonies — replace with real, moderated stories</span>
         <h2>Stories of Purpose Discovered</h2>
       </div>
-      <div class="grid-3">
-        <div class="quote-card reveal">
-          <p>"This community helped me see my worth outside of what people said about me. I finally understand my identity in Christ."</p>
-          <div class="quote-name mt-lg">— A. O.</div>
-          <div class="quote-role">Bible Study Member</div>
-        </div>
-        <div class="quote-card reveal">
-          <p>"My daughter's confidence has grown so much since joining the mentorship track. She talks about purpose now, not just grades."</p>
-          <div class="quote-name mt-lg">— A Grateful Parent</div>
-          <div class="quote-role">Mentorship Program</div>
-        </div>
-        <div class="quote-card reveal">
-          <p>"The daily devotions keep me grounded. It's the first thing I read every morning now."</p>
-          <div class="quote-name mt-lg">— T. K.</div>
-          <div class="quote-role">Newsletter Subscriber</div>
-        </div>
+      <div id="testimonyPreview" class="grid-3">
+        <p style="grid-column:1/-1; text-align:center; color:#8a7c6a;">Loading…</p>
       </div>
       <div class="center mt-lg">
         <a href="testimonies.html" class="btn btn-outline">Read More Stories</a>
@@ -282,6 +264,7 @@
       <div class="btn-row center" style="margin-top:24px;">
         <a href="prayer-hub.html" class="btn btn-clay">Submit a Prayer Request</a>
         <a href="community.html" class="btn btn-outline-light">Join the Community</a>
+        <a href="https://chat.whatsapp.com/HMId9jqBaGfE4yWc6DQvB6?s=cl&p=i&ilr=4" class="btn btn-outline-light" target="_blank" rel="noopener">Join Our WhatsApp Group</a>
       </div>
     </div>
   </section>
@@ -298,7 +281,6 @@
           <a href="https://www.instagram.com/forhispurpose.co/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
           <a href="https://www.tiktok.com/@forhispurpose.co" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
           <a href="https://www.youtube.com/@Forhispurposeofficial" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
-          <a href="#" aria-label="Facebook">FB</a>
           <a href="podcast.html" aria-label="Podcast">PD</a><a href="https://x.com/forhis_purpose" target="_blank" rel="noopener" aria-label="X (Twitter)">X</a>
         </div>
       </div>
@@ -343,7 +325,12 @@
 </footer>
 
 <script src="js/config.js"></script>
-<script>window.FHP_POSTS_TARGET = 'devoPreview'; window.FHP_POSTS_TYPE = 'devotional'; window.FHP_POSTS_LIMIT = 3;</script>
+<script>
+window.FHP_POSTS_FEEDS = [
+  { target: 'devoPreview', type: 'devotional', limit: 3 },
+  { target: 'testimonyPreview', type: 'testimony', limit: 3 }
+];
+</script>
 <script src="js/posts.js"></script>
 <script src="js/main.js"></script>
 </body>

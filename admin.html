@@ -27,7 +27,7 @@
 
   <div id="lockScreen" class="center">
     <span class="eyebrow">Private</span>
-    <h1 style="font-size:1.8rem;">Post a Devotional or Article</h1>
+    <h1 style="font-size:1.8rem;">Post an Update</h1>
     <p class="lede" style="margin:0 auto 28px;">Enter your admin password to continue. Only you should have this.</p>
     <div class="field">
       <input type="password" id="tokenInput" placeholder="Admin password">
@@ -38,7 +38,7 @@
 
   <div id="adminScreen" style="display:none;">
     <span class="eyebrow">Private admin page</span>
-    <h1 style="font-size:1.8rem;">Post a Devotional or Article</h1>
+    <h1 style="font-size:1.8rem;">Post an Update</h1>
     <p class="lede">This page is not linked anywhere on the public site — keep this address to yourself.</p>
 
     <form id="postForm" class="mt-lg">
@@ -47,22 +47,32 @@
         <select id="p-type" name="type" required>
           <option value="devotional">Devotional</option>
           <option value="article">Blog Article</option>
+          <option value="testimony">Testimony</option>
+          <option value="episode">Podcast Episode</option>
         </select>
       </div>
       <div class="field">
-        <label for="p-title">Title</label>
+        <label for="p-title" id="p-title-label">Title</label>
         <input type="text" id="p-title" name="title" required placeholder="e.g. For Such a Time As This">
       </div>
       <div class="field" id="scriptureField">
         <label for="p-scripture">Scripture reference (optional)</label>
         <input type="text" id="p-scripture" name="scripture_ref" placeholder="e.g. Esther 4:14">
       </div>
+      <div class="field" id="roleField" style="display:none;">
+        <label for="p-role">Role / category (optional)</label>
+        <input type="text" id="p-role" name="author" placeholder="e.g. Bible Study Member">
+      </div>
+      <div class="field" id="linkField" style="display:none;">
+        <label for="p-link">Listen / watch link</label>
+        <input type="url" id="p-link" name="link" placeholder="e.g. https://youtube.com/watch?v=...">
+      </div>
       <div class="field">
         <label for="p-date">Date</label>
         <input type="date" id="p-date" name="published_at">
       </div>
       <div class="field">
-        <label for="p-body">Write-up</label>
+        <label for="p-body" id="p-body-label">Write-up</label>
         <textarea id="p-body" name="body" rows="10" required placeholder="Write it the way you'd want people to read it. Keep it simple — a short reflection is enough."></textarea>
       </div>
       <button type="submit" class="btn btn-primary" style="width:100%;">Publish</button>
@@ -76,6 +86,8 @@
     <div class="tag-row mb-lg">
       <span class="tag-pill" data-filter="devotional" style="cursor:pointer;">Devotionals</span>
       <span class="tag-pill" data-filter="article" style="cursor:pointer;">Articles</span>
+      <span class="tag-pill" data-filter="testimony" style="cursor:pointer;">Testimonies</span>
+      <span class="tag-pill" data-filter="episode" style="cursor:pointer;">Episodes</span>
     </div>
     <div id="existingList"></div>
   </div>
@@ -145,12 +157,39 @@
   var errorEl = document.getElementById('postError');
   var typeSelect = document.getElementById('p-type');
   var scriptureField = document.getElementById('scriptureField');
+  var roleField = document.getElementById('roleField');
+  var linkField = document.getElementById('linkField');
+  var titleLabel = document.getElementById('p-title-label');
+  var bodyLabel = document.getElementById('p-body-label');
+  var titleInput = document.getElementById('p-title');
+  var bodyInput = document.getElementById('p-body');
 
-  function toggleScriptureField(){
-    scriptureField.style.display = typeSelect.value === 'devotional' ? 'block' : 'none';
+  function toggleFieldsForType(){
+    var isDevotional = typeSelect.value === 'devotional';
+    var isTestimony = typeSelect.value === 'testimony';
+    var isEpisode = typeSelect.value === 'episode';
+    scriptureField.style.display = isDevotional ? 'block' : 'none';
+    roleField.style.display = isTestimony ? 'block' : 'none';
+    linkField.style.display = isEpisode ? 'block' : 'none';
+    if (isTestimony) {
+      titleLabel.textContent = "Name (or \"Anonymous\")";
+      titleInput.placeholder = 'e.g. Anonymous';
+      bodyLabel.textContent = 'Their story';
+      bodyInput.placeholder = "Paste or type the testimony as they shared it with you.";
+    } else if (isEpisode) {
+      titleLabel.textContent = 'Episode title';
+      titleInput.placeholder = 'e.g. Who Told You Who You Are?';
+      bodyLabel.textContent = 'Episode description';
+      bodyInput.placeholder = 'A short description of what this episode covers.';
+    } else {
+      titleLabel.textContent = 'Title';
+      titleInput.placeholder = 'e.g. For Such a Time As This';
+      bodyLabel.textContent = 'Write-up';
+      bodyInput.placeholder = "Write it the way you'd want people to read it. Keep it simple — a short reflection is enough.";
+    }
   }
-  typeSelect.addEventListener('change', toggleScriptureField);
-  toggleScriptureField();
+  typeSelect.addEventListener('change', toggleFieldsForType);
+  toggleFieldsForType();
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -161,6 +200,8 @@
       type: typeSelect.value,
       title: document.getElementById('p-title').value.trim(),
       scripture_ref: document.getElementById('p-scripture').value.trim(),
+      author: document.getElementById('p-role').value.trim(),
+      link: document.getElementById('p-link').value.trim(),
       body: document.getElementById('p-body').value.trim(),
       published_at: document.getElementById('p-date').value || undefined
     };
@@ -177,7 +218,7 @@
         if (!result.ok) throw new Error((result.data && result.data.error) || 'Could not publish.');
         successEl.style.display = 'block';
         form.reset();
-        toggleScriptureField();
+        toggleFieldsForType();
         loadList(typeSelect.value);
       })
       .catch(function(err){
