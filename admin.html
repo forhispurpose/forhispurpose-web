@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Post an Update — For His Purpose</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .admin-wrap{ max-width: 640px; margin: 0 auto; padding: 64px 24px 100px; }
+  .admin-list-item{ border-bottom:1px solid var(--line); padding: 16px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+  .admin-list-item .meta{ font-size:.78rem; color:#8a7c6a; margin-top:4px; }
+  .admin-list-item button{ background:none; border:1px solid var(--line); border-radius:8px; padding:6px 12px; font-size:.78rem; cursor:pointer; color:#B3261E; flex:none; }
+  .admin-list-item button:hover{ background:#FBEAEA; }
+  #lockScreen .field{ max-width:340px; margin:0 auto 18px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">FHP</span><span>For His Purpose<br><small>The Purpose Generation</small></span></a>
+  </div>
+</header>
+
+<main class="admin-wrap">
+
+  <div id="lockScreen" class="center">
+    <span class="eyebrow">Private</span>
+    <h1 style="font-size:1.8rem;">Post a Devotional or Article</h1>
+    <p class="lede" style="margin:0 auto 28px;">Enter your admin password to continue. Only you should have this.</p>
+    <div class="field">
+      <input type="password" id="tokenInput" placeholder="Admin password">
+    </div>
+    <button class="btn btn-primary" id="unlockBtn">Continue</button>
+    <div id="lockError" style="display:none; color:#B3261E; font-weight:600; font-size:.85rem; margin-top:14px;"></div>
+  </div>
+
+  <div id="adminScreen" style="display:none;">
+    <span class="eyebrow">Private admin page</span>
+    <h1 style="font-size:1.8rem;">Post a Devotional or Article</h1>
+    <p class="lede">This page is not linked anywhere on the public site — keep this address to yourself.</p>
+
+    <form id="postForm" class="mt-lg">
+      <div class="field">
+        <label for="p-type">What is this?</label>
+        <select id="p-type" name="type" required>
+          <option value="devotional">Devotional</option>
+          <option value="article">Blog Article</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="p-title">Title</label>
+        <input type="text" id="p-title" name="title" required placeholder="e.g. For Such a Time As This">
+      </div>
+      <div class="field" id="scriptureField">
+        <label for="p-scripture">Scripture reference (optional)</label>
+        <input type="text" id="p-scripture" name="scripture_ref" placeholder="e.g. Esther 4:14">
+      </div>
+      <div class="field">
+        <label for="p-date">Date</label>
+        <input type="date" id="p-date" name="published_at">
+      </div>
+      <div class="field">
+        <label for="p-body">Write-up</label>
+        <textarea id="p-body" name="body" rows="10" required placeholder="Write it the way you'd want people to read it. Keep it simple — a short reflection is enough."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Publish</button>
+    </form>
+    <div id="postSuccess" class="form-success">Published — it's live on the site now.</div>
+    <div id="postError" style="display:none; color:#B3261E; font-weight:600; font-size:.85rem; margin-top:14px;"></div>
+
+    <hr style="border:none;border-top:1px solid var(--line); margin:48px 0 24px;">
+
+    <h2 style="font-size:1.2rem;">Already published</h2>
+    <div class="tag-row mb-lg">
+      <span class="tag-pill" data-filter="devotional" style="cursor:pointer;">Devotionals</span>
+      <span class="tag-pill" data-filter="article" style="cursor:pointer;">Articles</span>
+    </div>
+    <div id="existingList"></div>
+  </div>
+
+</main>
+
+<script src="js/config.js"></script>
+<script>
+(function(){
+  var apiBase = window.FHP_API_BASE || '';
+  var TOKEN_KEY = 'fhp-admin-token';
+
+  var lockScreen = document.getElementById('lockScreen');
+  var adminScreen = document.getElementById('adminScreen');
+  var tokenInput = document.getElementById('tokenInput');
+  var unlockBtn = document.getElementById('unlockBtn');
+  var lockError = document.getElementById('lockError');
+
+  function getToken(){ try { return sessionStorage.getItem(TOKEN_KEY); } catch(e){ return null; } }
+  function setToken(t){ try { sessionStorage.setItem(TOKEN_KEY, t); } catch(e){} }
+
+  function showAdmin(){
+    lockScreen.style.display = 'none';
+    adminScreen.style.display = 'block';
+    loadList('devotional');
+  }
+
+  // Try to verify a stored token silently by attempting a harmless authed call.
+  function verifyToken(token, cb){
+    fetch(apiBase + '/api/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-token': token },
+      body: JSON.stringify({}) // intentionally invalid body — we only care about the auth check
+    }).then(function(res){
+      // 401 = wrong password. Anything else (400 validation error, etc.) means the password was accepted.
+      cb(res.status !== 401);
+    }).catch(function(){ cb(false); });
+  }
+
+  var existing = getToken();
+  if (existing) {
+    verifyToken(existing, function(ok){
+      if (ok) showAdmin();
+    });
+  }
+
+  unlockBtn.addEventListener('click', function(){
+    var val = tokenInput.value.trim();
+    if (!val) return;
+    unlockBtn.disabled = true; unlockBtn.textContent = 'Checking…';
+    verifyToken(val, function(ok){
+      unlockBtn.disabled = false; unlockBtn.textContent = 'Continue';
+      if (ok) {
+        setToken(val);
+        showAdmin();
+      } else {
+        lockError.textContent = 'That password was not accepted. Try again.';
+        lockError.style.display = 'block';
+      }
+    });
+  });
+  tokenInput.addEventListener('keydown', function(e){ if (e.key === 'Enter') unlockBtn.click(); });
+
+  // ---- Post form ----
+  var form = document.getElementById('postForm');
+  var successEl = document.getElementById('postSuccess');
+  var errorEl = document.getElementById('postError');
+  var typeSelect = document.getElementById('p-type');
+  var scriptureField = document.getElementById('scriptureField');
+
+  function toggleScriptureField(){
+    scriptureField.style.display = typeSelect.value === 'devotional' ? 'block' : 'none';
+  }
+  typeSelect.addEventListener('change', toggleScriptureField);
+  toggleScriptureField();
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    successEl.style.display = 'none';
+    errorEl.style.display = 'none';
+
+    var payload = {
+      type: typeSelect.value,
+      title: document.getElementById('p-title').value.trim(),
+      scripture_ref: document.getElementById('p-scripture').value.trim(),
+      body: document.getElementById('p-body').value.trim(),
+      published_at: document.getElementById('p-date').value || undefined
+    };
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = 'Publishing…';
+
+    fetch(apiBase + '/api/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-token': getToken() },
+      body: JSON.stringify(payload)
+    }).then(function(res){ return res.json().then(function(data){ return { ok: res.ok, data: data }; }); })
+      .then(function(result){
+        if (!result.ok) throw new Error((result.data && result.data.error) || 'Could not publish.');
+        successEl.style.display = 'block';
+        form.reset();
+        toggleScriptureField();
+        loadList(typeSelect.value);
+      })
+      .catch(function(err){
+        errorEl.textContent = err.message;
+        errorEl.style.display = 'block';
+      })
+      .finally(function(){
+        btn.disabled = false; btn.textContent = 'Publish';
+      });
+  });
+
+  // ---- Existing posts list ----
+  var listEl = document.getElementById('existingList');
+  var filters = document.querySelectorAll('[data-filter]');
+  var currentFilter = 'devotional';
+
+  filters.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      currentFilter = pill.getAttribute('data-filter');
+      loadList(currentFilter);
+    });
+  });
+
+  function loadList(type){
+    currentFilter = type;
+    listEl.innerHTML = '<p style="color:#8a7c6a;">Loading…</p>';
+    fetch(apiBase + '/api/posts?type=' + encodeURIComponent(type))
+      .then(function(res){ return res.json(); })
+      .then(function(result){
+        if (!result.ok || !result.posts || !result.posts.length) {
+          listEl.innerHTML = '<p style="color:#8a7c6a;">Nothing published yet.</p>';
+          return;
+        }
+        listEl.innerHTML = '';
+        result.posts.forEach(function(post){
+          var row = document.createElement('div');
+          row.className = 'admin-list-item';
+          row.innerHTML =
+            '<div><strong>' + escapeHtml(post.title) + '</strong>' +
+            '<div class="meta">' + escapeHtml(post.published_at) + (post.scripture_ref ? ' · ' + escapeHtml(post.scripture_ref) : '') + '</div></div>' +
+            '<button data-id="' + post.id + '">Delete</button>';
+          row.querySelector('button').addEventListener('click', function(){
+            if (!confirm('Delete "' + post.title + '"? This cannot be undone.')) return;
+            fetch(apiBase + '/api/posts/' + post.id, {
+              method: 'DELETE',
+              headers: { 'x-admin-token': getToken() }
+            }).then(function(res){ return res.json(); })
+              .then(function(result){
+                if (result.ok) loadList(currentFilter);
+                else alert(result.error || 'Could not delete.');
+              });
+          });
+          listEl.appendChild(row);
+        });
+      })
+      .catch(function(){ listEl.innerHTML = '<p style="color:#8a7c6a;">Could not load posts right now.</p>'; });
+  }
+
+  function escapeHtml(str){
+    var div = document.createElement('div');
+    div.textContent = str == null ? '' : String(str);
+    return div.innerHTML;
+  }
+})();
+</script>
+</body>
+</html>
