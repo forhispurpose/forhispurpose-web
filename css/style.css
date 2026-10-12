@@ -1,21 +1,26 @@
 /* ===========================================================
-   For His Purpose — Design Prototype Stylesheet
-   Palette: 60% white/cream, 30% carton yellowish-brown, 10% black
+   For His Purpose — Official Stylesheet
+   Palette: Clean White/Black mode with signature Rose Pink accents
    =========================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
-  --cream: #FBF7F0;
+  --cream: #FFFFFF;
   --white: #FFFFFF;
-  --ink: #1C1712;
-  --ink-soft: #4A3F35;
-  --clay: #B9803F;
-  --clay-deep: #8F5F2A;
-  --clay-soft: #F1E1C6;
-  --clay-mid: #D9A768;
-  --line: #E6D9C4;
-  --shadow: 0 12px 32px rgba(28, 23, 18, 0.08);
+  --bg-subtle: #FCF8FA;
+  --ink: #141215;
+  --ink-soft: #554D52;
+  --pink: #D95383;
+  --pink-deep: #B53564;
+  --pink-soft: #FDF1F5;
+  --pink-mid: #E87A9D;
+  --clay: var(--pink);
+  --clay-deep: var(--pink-deep);
+  --clay-soft: var(--pink-soft);
+  --clay-mid: var(--pink-mid);
+  --line: #F2E3E9;
+  --shadow: 0 12px 32px rgba(217, 83, 131, 0.08);
   --radius: 18px;
   --maxw: 1180px;
   --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -330,19 +335,111 @@ nav.top-links a.nav-link:hover, nav.top-links a.nav-link.active{ color: var(--cl
 .tag-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; }
 .tag-pill{ background: var(--clay-soft); color: var(--clay-deep); font-size:.76rem; font-weight:700; padding:6px 14px; border-radius:999px; }
 
-/* ================= DARK MODE (toggle in header, Yield-style moon icon) ================= */
+/* ================= DARK MODE (toggle in header) ================= */
 body.dark-mode{
-  --cream: #17130F;
-  --white: #201A14;
-  --ink: #F7F1E6;
-  --ink-soft: #CBBBA6;
-  --clay-soft: #2E2318;
-  --line: #392C1F;
-  --shadow: 0 12px 32px rgba(0,0,0,.4);
+  --cream: #0E0D10;
+  --white: #17161A;
+  --bg-subtle: #131215;
+  --ink: #FFFFFF;
+  --ink-soft: #D0C8CE;
+  --pink: #F27DA4;
+  --pink-deep: #FA92B4;
+  --pink-soft: #281621;
+  --pink-mid: #F597B6;
+  --clay: var(--pink);
+  --clay-deep: var(--pink-deep);
+  --clay-soft: var(--pink-soft);
+  --clay-mid: var(--pink-mid);
+  --line: #2B2428;
+  --shadow: 0 12px 32px rgba(0,0,0,.55);
 }
-body.dark-mode .site-header{ background: rgba(23,19,15,.9); }
-body.dark-mode .cta-band{ background: #0E0B08; }
+body.dark-mode .site-header{ background: rgba(14,13,16,.92); border-bottom-color: var(--line); }
+body.dark-mode .cta-band{ background: linear-gradient(135deg, #7A1D40 0%, #B83564 100%); }
 body.dark-mode .devo-media span, body.dark-mode .hero-badge{ color: var(--ink); }
-body.dark-mode .form-card, body.dark-mode .card, body.dark-mode .devo-card, body.dark-mode .quote-card{ background: var(--white); }
-body.dark-mode .field input, body.dark-mode .field select, body.dark-mode .field textarea{ background: var(--cream); color: var(--ink); border-color: var(--line); }
-body.dark-mode .theme-toggle{ color: var(--clay-mid); border-color: var(--line); }
+body.dark-mode .form-card, body.dark-mode .card, body.dark-mode .devo-card, body.dark-mode .quote-card{ background: var(--white); border-color: var(--line); }
+body.dark-mode .field input, body.dark-mode .field select, body.dark-mode .field textarea{ background: #131215; color: var(--ink); border-color: var(--line); }
+body.dark-mode .theme-toggle{ color: var(--pink-mid); border-color: var(--line); }
+
+/* ================= PHOTO CARDS & SPLIT BANNERS (Build Her Faith Inspired) ================= */
+.card-photo{
+  padding:0; overflow:hidden; display:flex; flex-direction:column;
+  border-radius: var(--radius); background: var(--white); border: 1px solid var(--line);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card-photo:hover{
+  transform: translateY(-5px); box-shadow: var(--shadow);
+}
+.card-photo .card-img{
+  width:100%; aspect-ratio: 4/3; overflow:hidden; position:relative; background: var(--pink-soft);
+}
+.card-photo .card-img img{
+  width:100%; height:100%; object-fit:cover; transition: transform .4s ease;
+}
+.card-photo:hover .card-img img{
+  transform: scale(1.06);
+}
+.card-photo .card-body{
+  padding: 24px 22px 26px; display:flex; flex-direction:column; flex:1;
+}
+.card-photo h3{
+  color: var(--pink); font-size: 1.22rem; margin-bottom: 10px; font-family: var(--serif);
+}
+.card-photo p{
+  color: var(--ink-soft); font-size: .93rem; line-height: 1.6; margin-bottom: 16px;
+}
+.card-photo .card-link{
+  margin-top:auto; color: var(--pink); font-weight:700; text-transform:uppercase;
+  letter-spacing:.06em; font-size:.82rem; display:inline-flex; align-items:center; gap:6px;
+}
+.card-photo .card-link:hover{
+  color: var(--pink-deep); transform: translateX(3px);
+}
+
+/* Split Pink Banner (Screenshot 2 inspiration) */
+.split-pink-banner{
+  background: linear-gradient(135deg, var(--pink-deep) 0%, var(--pink) 100%);
+  border-radius: 28px; overflow:hidden; display:grid; grid-template-columns: 1.1fr 1fr;
+  align-items:stretch; margin: 48px auto; color: #fff; box-shadow: var(--shadow);
+}
+.split-pink-text{
+  padding: 56px 48px; display:flex; flex-direction:column; justify-content:center;
+}
+.split-pink-text h2{
+  color: #fff; font-size: clamp(1.8rem, 3.2vw, 2.6rem); margin-bottom: 16px; line-height: 1.25;
+}
+.split-pink-text p{
+  color: rgba(255,255,255,.94); font-size: 1.08rem; line-height: 1.65; margin-bottom: 26px; max-width: 500px;
+}
+.split-pink-img{
+  position:relative; min-height: 320px;
+}
+.split-pink-img img{
+  width:100%; height:100%; object-fit:cover;
+}
+@media (max-width: 860px){
+  .split-pink-banner{ grid-template-columns: 1fr; }
+  .split-pink-text{ padding: 36px 24px; }
+  .split-pink-img{ min-height: 240px; }
+}
+
+/* Team & Join Section (Screenshot 3 inspiration) */
+.team-join-section{
+  display:grid; grid-template-columns: 1fr 1.15fr; gap:52px; align-items:center;
+  padding: 40px 0;
+}
+.team-join-text .eyebrow{ color: var(--pink); }
+.team-join-text h2{
+  color: var(--pink); font-size: clamp(2rem, 3.8vw, 3rem); margin-bottom: 20px; line-height: 1.2;
+}
+.team-join-text p{
+  font-size: 1.05rem; line-height: 1.7; margin-bottom: 28px; color: var(--ink-soft);
+}
+.team-join-img{
+  border-radius: 24px; overflow:hidden; box-shadow: var(--shadow); aspect-ratio: 4/3;
+}
+.team-join-img img{
+  width:100%; height:100%; object-fit:cover;
+}
+@media (max-width: 860px){
+  .team-join-section{ grid-template-columns: 1fr; gap: 32px; }
+}
