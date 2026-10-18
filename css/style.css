@@ -536,3 +536,96 @@ body.dark-mode .meeting-callout{
   font-size:1.05rem; color:var(--ink-soft); max-width:520px; margin:0 auto 24px; line-height:1.6;
 }
 
+/* ================= GOOGLE FORM CARDS LAYOUT ================= */
+.gform-container{
+  max-width: 680px; margin: 0 auto; padding: 24px 16px 80px;
+}
+.gform-card{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.03);
+  transition: border-color .2s ease;
+}
+.gform-card:focus-within{
+  border-color: var(--pink);
+}
+.gform-header-card{
+  border-top: 10px solid var(--pink);
+  padding: 30px 28px;
+}
+.gform-header-card h1{
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+.gform-q-title{
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.gform-input{
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  padding: 8px 0;
+  font-family: var(--sans);
+  font-size: .95rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s ease;
+}
+.gform-input:focus{
+  border-bottom-color: var(--pink);
+  border-bottom-width: 2px;
+}
+.gform-textarea{
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  padding: 8px 0;
+  font-family: var(--sans);
+  font-size: .95rem;
+  color: var(--ink);
+  outline: none;
+  resize: vertical;
+  transition: border-color .2s ease;
+}
+.gform-textarea:focus{
+  border-bottom-color: var(--pink);
+  border-bottom-width: 2px;
+}
+.gform-option{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: .95rem;
+  color: var(--ink);
+}
+.gform-option input[type="checkbox"], .gform-option input[type="radio"]{
+  width: 18px;
+  height: 18px;
+  accent-color: var(--pink);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.gform-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+
