@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Articles — For His Purpose</title>
-<meta name="description" content="Articles from For His Purpose on faith, identity, and purpose.">
+<title>Newsletter — For His Purpose</title>
+<meta name="description" content="Stay encouraged and connected with regular biblical reflections, devotionals, and updates from For His Purpose.">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,15 +13,11 @@
   <div class="header-inner">
     <a href="index.html" class="brand"><span class="brand-mark">FHP</span><span>For His Purpose</span></a>
     <nav class="top-links">
-      <div class="nav-item">
-        <a href="about.html" class="nav-link">About</a>
-        <div class="nav-dropdown">
-          <a href="about.html">About Our Founder</a>
-        </div>
-      </div>
+      <a href="about.html" class="nav-link">About</a>
       <a href="bible-study.html" class="nav-link">Bible Study</a>
       <a href="mentorship.html" class="nav-link">Mentorship</a>
       <a href="podcast.html" class="nav-link">Podcast</a>
+      <a href="volunteer.html" class="nav-link">Volunteer</a>
     </nav>
     <div class="header-cta">
       <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">&#9789;</button>
@@ -36,7 +32,6 @@
   <div class="mega-inner container">
     <div class="mega-brand">
       <div class="footer-brand" style="color:var(--ink);">For His Purpose</div>
-      <p style="color:var(--ink-soft); max-width:280px;">Yielded to purpose, raising a generation flourishing in faith — a Christ-centred community establishing God's kingdom on earth, starting with women and the girl child.</p>
       <div class="social-row" style="margin-top:16px;">
         <a href="https://www.instagram.com/forhispurpose.co/" target="_blank" rel="noopener" style="border-color:var(--line); color:var(--ink);" aria-label="Instagram">IG</a>
         <a href="https://www.youtube.com/@Forhispurposeofficial" target="_blank" rel="noopener" style="border-color:var(--line); color:var(--ink);" aria-label="YouTube">YT</a>
@@ -50,17 +45,15 @@
       <h4>Explore</h4>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Our Founder</a></li>
-        <li><a href="daily-devotion.html">Devotions</a></li>
-        <li><a href="articles.html">Articles</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="volunteer.html">Volunteer &amp; Serve</a></li>
+        <li><a href="daily-devotion.html">Devotionals</a></li>
+        <li><a href="articles.html">Newsletter</a></li>
         <li><a href="bible-study.html">Bible Study Hub</a></li>
         <li><a href="mentorship.html">Mentorship</a></li>
         <li><a href="podcast.html">Podcast</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="resources.html">Resources</a></li>
         <li><a href="prayer-hub.html">Prayer Hub</a></li>
-        
-        <li><a href="community.html">Community</a></li>
         <li><a href="testimonies.html">Testimonies</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -73,7 +66,7 @@
     </div>
   </div>
   <div class="mega-footer container">
-    <p class="mega-quote">&ldquo;Raising a generation that understands its identity, walks in purpose, and lives for His glory.&rdquo;</p>
+    <p class="mega-quote">&ldquo;A community of women growing in Christ and walking in His purpose.&rdquo;</p>
     <p class="mega-copy">&copy; <span class="js-year"></span> For His Purpose. All Rights Reserved.</p>
   </div>
 </div>
@@ -81,16 +74,34 @@
 <main>
   <section class="page-hero">
     <div class="container center">
-      <div class="breadcrumb">Articles</div>
-      <h1>Articles</h1>
-      <p class="lede">Writing on faith, identity, and purpose.</p>
+      <div class="breadcrumb">Newsletter</div>
+      <h1>Newsletter</h1>
+      <p class="lede">Biblical encouragement, reflections, and ministry updates delivered directly to your inbox.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
+      <div class="card" style="max-width:640px; margin:0 auto 48px; padding:36px 28px; text-align:center; background:var(--card-bg, #fff); border:1px solid var(--line); border-radius:12px;">
+        <span class="eyebrow">Subscribe</span>
+        <h2 style="font-size:1.75rem; margin-top:8px; margin-bottom:12px;">Stay Connected &amp; Encouraged</h2>
+        <p style="color:var(--ink-soft); max-width:480px; margin:0 auto 24px; font-size:0.98rem;">Join women around the world receiving biblical reflections, announcements, and study resources straight to their inboxes.</p>
+        <form data-demo-form data-endpoint="/api/newsletter" style="max-width:460px; margin:0 auto;">
+          <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+            <input type="email" name="email" placeholder="Enter your email address" required style="flex:1; min-width:220px; padding:12px 16px; border:1px solid var(--line); border-radius:6px; font-size:0.95rem;">
+            <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Subscribe Now</button>
+          </div>
+        </form>
+        <div class="form-success" style="margin-top:16px;">Thank you — you're subscribed to the For His Purpose newsletter!</div>
+      </div>
+
+      <div class="center mb-md">
+        <span class="eyebrow">Archive &amp; Letters</span>
+        <h2>Recent Editions</h2>
+      </div>
+
       <div id="articleList" class="grid-3 mt-lg">
-        <p style="color:#8a7c6a;">Loading articles…</p>
+        <p style="color:#8a7c6a;">Loading newsletter articles…</p>
       </div>
     </div>
   </section>
@@ -107,11 +118,12 @@
         </div>
       </div>
       <div class="footer-col"><h4>Explore</h4><ul>
-        <li><a href="about.html">About Our Founder</a></li><li><a href="daily-devotion.html">Devotions</a></li><li><a href="articles.html">Articles</a></li><li><a href="bible-study.html">Bible Study Hub</a></li><li><a href="mentorship.html">Mentorship</a></li>
+        <li><a href="about.html">About</a></li><li><a href="daily-devotion.html">Devotionals</a></li><li><a href="articles.html">Newsletter</a></li><li><a href="bible-study.html">Bible Study Hub</a></li><li><a href="mentorship.html">Mentorship</a></li><li><a href="podcast.html">Podcast</a></li>
       </ul></div>
       <div class="footer-col"><h4>Get Involved</h4><ul>
+        <li><a href="volunteer.html">Volunteer / Join Team</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="community.html">Community</a></li><li><a href="testimonies.html">Testimonies</a></li><li><a href="prayer-hub.html">Prayer Hub</a></li><li><a href="contact.html">Contact</a></li>
+        <li><a href="testimonies.html">Testimonies</a></li><li><a href="prayer-hub.html">Prayer Hub</a></li><li><a href="contact.html">Contact</a></li>
       </ul></div>
       <div class="footer-col">
         <h4>Join Our Newsletter</h4>
