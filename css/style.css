@@ -200,7 +200,10 @@ nav.top-links a.nav-link:hover, nav.top-links a.nav-link.active{ color: var(--cl
   width:100%; text-align:center;
 }
 .hero-content .hero-eyebrow{ color: var(--clay-mid); text-shadow: 0 2px 10px rgba(0,0,0,.55); }
-.hero-content h1{ color: var(--white); font-size: clamp(1.25rem, 2.7vw, 2.15rem); line-height: 1.35; margin: 0 auto 22px; max-width:680px; text-wrap:balance; text-shadow: 0 4px 20px rgba(0,0,0,.55); }
+.hero-content h1{ color: var(--white); font-size: clamp(1.05rem, 2.2vw, 1.95rem); line-height: 1.35; margin: 0 auto 22px; max-width:1100px; text-shadow: 0 4px 20px rgba(0,0,0,.55); }
+@media (min-width: 768px){
+  .hero-content h1{ white-space: nowrap; }
+}
 .hero-content .btn-row{ justify-content:center; }
 .hero-content .hero-lede{ color: rgba(255,255,255,.92); max-width:600px; margin:0 auto; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
 @media (max-width: 860px){
