@@ -193,7 +193,7 @@ nav.top-links a.nav-link:hover, nav.top-links a.nav-link.active{ color: var(--cl
 .hero-bg img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; }
 .hero-overlay{
   position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(20,15,10,.45) 0%, rgba(20,15,10,.55) 40%, rgba(20,15,10,.92) 100%);
+  background: linear-gradient(180deg, rgba(20,15,10,.22) 0%, rgba(20,15,10,.32) 40%, rgba(20,15,10,.62) 100%);
 }
 .hero-content{
   position:relative; z-index:1; padding: 90px 24px 64px; color: var(--white);
