@@ -656,3 +656,29 @@ body.dark-mode .meeting-callout{
 }
 
 
+
+/* Testimonial Cards (Inspired by Prayer Brunch & Build Her Faith) */
+.testimony-card{
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 32px 28px; display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.03); transition: transform .25s ease, box-shadow .25s ease;
+}
+.testimony-card:hover{
+  transform: translateY(-4px); box-shadow: var(--shadow);
+}
+.testimony-quote-icon{
+  color: var(--pink); font-size: 2.4rem; line-height: 1; font-family: Georgia, serif; margin-bottom: 12px;
+}
+.testimony-text{
+  font-size: 1.02rem; line-height: 1.68; color: var(--ink); margin-bottom: 22px;
+}
+.testimony-footer{
+  display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line);
+  padding-top: 16px; margin-top: auto;
+}
+.testimony-author{
+  font-weight: 700; font-size: .95rem; color: var(--ink);
+}
+.testimony-location{
+  font-size: .8rem; color: var(--ink-soft); display: block; font-weight: 400; margin-top: 2px;
+}
