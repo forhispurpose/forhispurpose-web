@@ -74,36 +74,55 @@ p{ margin:0 0 1em; }
 .btn-row{ display:flex; gap:14px; flex-wrap:wrap; }
 .center .btn-row{ justify-content:center; }
 
-/* ================= HEADER ================= */
+/* ================= HEADER (Trending Sleek Glassmorphism) ================= */
 .site-header{
   position: sticky; top:0; z-index: 400;
-  background: rgba(251,247,240,.92); backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  transition: all .2s ease;
 }
 .header-inner{
   display:flex; align-items:center; justify-content:space-between;
-  padding: 16px 24px; max-width: var(--maxw); margin:0 auto;
+  padding: 8px 24px; min-height: 56px; max-width: var(--maxw); margin:0 auto;
 }
-.brand{ display:flex; align-items:center; gap:12px; font-family: var(--serif); font-weight:700; font-size:1.25rem; color: var(--ink); }
+.brand{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family: var(--sans); font-weight:700; font-size:1.06rem; color: var(--ink);
+  text-decoration:none; letter-spacing:-.015em; line-height:1;
+  transition: opacity .15s ease;
+}
+.brand:hover{ opacity:.85; }
 .brand .brand-logo{
+  width:32px; height:32px; max-width:32px; max-height:32px;
+  border-radius:50%; object-fit:contain; display:block; flex:none;
+  box-shadow: 0 2px 6px rgba(139, 14, 42, 0.16);
+  transition: transform .2s ease;
+}
+.brand:hover .brand-logo{ transform: scale(1.05); }
+.footer-logo{
   width:42px; height:42px; border-radius:50%; object-fit:contain; display:block; flex:none;
 }
-@media (max-width: 860px){
-  .brand .brand-logo{ width:36px; height:36px; }
-}
-.footer-logo{
-  width:44px; height:44px; border-radius:50%; object-fit:contain; display:block; flex:none;
-}
 .brand .brand-mark{
-  width:38px; height:38px; border-radius:50%; background: var(--clay);
-  color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:1rem;
+  width:32px; height:32px; border-radius:50%; background: var(--clay);
+  color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-size:.82rem; font-weight:700;
 }
-.brand small{ display:block; font-family: var(--sans); font-weight:600; font-size:.62rem; letter-spacing:.12em; color: var(--clay-deep); text-transform:uppercase; }
+.brand small{ display:none; }
 
-/* Minimal persistent top links (Yield-style: a few direct links, everything else lives in the mega menu) */
-nav.top-links{ display:flex; align-items:center; gap:30px; }
-nav.top-links a.nav-link{ font-weight:600; font-size:.92rem; color: var(--ink-soft); }
-nav.top-links a.nav-link:hover, nav.top-links a.nav-link.active{ color: var(--clay-deep); }
+/* Minimal persistent top links (Modern soft-pill styling) */
+nav.top-links{ display:flex; align-items:center; gap:6px; }
+nav.top-links a.nav-link{
+  font-weight:500; font-size:.88rem; color: var(--ink-soft);
+  padding: 6px 14px; border-radius: 999px; transition: all .18s ease; text-decoration:none;
+}
+nav.top-links a.nav-link:hover{
+  color: var(--pink-deep); background: var(--pink-soft);
+}
+nav.top-links a.nav-link.active{
+  color: var(--pink-deep); background: var(--pink-soft); font-weight:600;
+}
 
 /* Dropdown submenu (About > About Us / About Founder) */
 .nav-item{ position:relative; }
@@ -121,19 +140,20 @@ nav.top-links a.nav-link:hover, nav.top-links a.nav-link.active{ color: var(--cl
 .nav-dropdown a:hover{ background: var(--clay-soft); color: var(--clay-deep); }
 @media (max-width: 860px){
   nav.top-links{ display:none; }
-  .header-inner{ padding: 12px 18px; }
-  .brand{ font-size:1.02rem; gap:8px; }
-  .brand .brand-mark{ width:32px; height:32px; font-size:.85rem; }
+  .header-inner{ padding: 6px 16px; min-height: 50px; }
+  .brand{ font-size:.98rem; gap:8px; }
+  .brand .brand-logo{ width:28px; height:28px; max-width:28px; max-height:28px; }
+  .brand .brand-mark{ width:28px; height:28px; font-size:.8rem; }
   .brand small{ display:none; }
   .header-cta{ gap:8px; }
-  .header-cta .btn-sm{ padding:9px 14px; font-size:.8rem; }
-  .theme-toggle{ width:32px; height:32px; }
+  .header-cta .btn-sm{ padding:7px 12px; font-size:.78rem; }
+  .theme-toggle{ width:32px; height:32px; font-size:.85rem; }
 }
 
 .header-cta{ display:flex; align-items:center; gap:12px; }
 
 .theme-toggle{
-  width:38px; height:38px; border-radius:50%; border:1.5px solid var(--line); background:transparent;
+  width:34px; height:34px; font-size:.9rem; border-radius:50%; border:1.5px solid var(--line); background:transparent;
   color: var(--ink); font-size:1rem; display:flex; align-items:center; justify-content:center; cursor:pointer;
   transition: all .2s ease;
 }
@@ -368,7 +388,12 @@ body.dark-mode{
   --line: #2B2428;
   --shadow: 0 12px 32px rgba(0,0,0,.55);
 }
-body.dark-mode .site-header{ background: rgba(14,13,16,.92); border-bottom-color: var(--line); }
+body.dark-mode .site-header{
+  background: rgba(14,13,16,.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom-color: var(--line);
+}
 body.dark-mode .cta-band{ background: linear-gradient(135deg, #7A1D40 0%, #B83564 100%); }
 body.dark-mode .devo-media span, body.dark-mode .hero-badge{ color: var(--ink); }
 body.dark-mode .form-card, body.dark-mode .card, body.dark-mode .devo-card, body.dark-mode .quote-card{ background: var(--white); border-color: var(--line); }
