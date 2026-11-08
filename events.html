@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Events — For His Purpose</title>
-<meta name="description" content="For His Purpose gatherings — past events and what's coming up next.">
+<title>Events &amp; Gatherings — For His Purpose</title>
+<meta name="description" content="Gathering women in Christ for fellowship, worship, the Word, and intentional sisterhood. Upcoming and past For His Purpose events.">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
@@ -16,8 +16,15 @@
     <a href="index.html" class="brand"><img src="images/logo.png" alt="For His Purpose Logo" class="brand-logo" width="32" height="32"><span>For His Purpose</span></a>
     <nav class="top-links">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
+      <div class="nav-item-dropdown">
+        <a href="about.html" class="nav-link">About <span class="nav-arrow">&#9662;</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="about.html" class="dropdown-link">About Us</a>
+          <a href="founder.html" class="dropdown-link">About the Founder</a>
+        </div>
+      </div>
       <a href="bible-study.html" class="nav-link">Bible Study</a>
+      <a href="events.html" class="nav-link active">Events</a>
       <a href="mentorship.html" class="nav-link">Mentorship</a>
       <a href="podcast.html" class="nav-link">Podcast</a>
       <a href="volunteer.html" class="nav-link">Volunteer</a>
@@ -54,7 +61,8 @@
       <h4>Explore</h4>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="founder.html">About the Founder</a></li>
         <li><a href="volunteer.html">Volunteer &amp; Serve</a></li>
         <li><a href="daily-devotion.html">Devotionals</a></li>
         <li><a href="newsletter.html">Newsletter</a></li>
@@ -80,56 +88,174 @@
 </div>
 
 <main>
+  <!-- HERO -->
   <section class="page-hero">
     <div class="container center">
-      <div class="breadcrumb">Events</div>
+      <div class="breadcrumb">Gatherings &amp; Fellowship</div>
       <h1>For His Purpose Events</h1>
-      <p class="lede">Where we've gathered, and where we're gathering next.</p>
+      <p class="lede">Gathering women in Christ for fellowship, worship, the Word, and intentional sisterhood.</p>
     </div>
   </section>
 
-  <!-- UPCOMING -->
-  <section class="section">
-    <div class="container">
-      <div class="center mb-lg">
-        <span class="eyebrow">Coming Up</span>
-        <h2>Next Gathering</h2>
+  <!-- FEATURED SPOTLIGHT GATHERING -->
+  <section class="section section-alt">
+    <div class="container split" style="align-items:center;">
+      <div class="card-photo reveal" style="border-radius:24px; overflow:hidden;">
+        <div class="card-img" style="aspect-ratio:4/3;">
+          <img src="images/features/events.jpg" alt="Worship and Sisterhood at For His Purpose Events" style="object-fit:cover;">
+        </div>
       </div>
-      <div class="grid-3 mt-lg" id="upcomingEvents">
-        <div class="card reveal">
-          <span class="tag-pill" style="margin-bottom:14px; display:inline-block;">Upcoming</span>
-          <h3>Lagos State Gathering</h3>
-          <p>July 26 &middot; Lagos, Nigeria</p>
-          <a href="newsletter.html" class="card-link">Join the newsletter for details →</a>
+      <div class="reveal">
+        <span class="eyebrow">Sisterhood &amp; Worship</span>
+        <h2 style="font-size:clamp(1.8rem, 3vw, 2.4rem); line-height:1.25; margin-bottom:16px;">
+          Moments in His Presence, Rooted in Sisterhood
+        </h2>
+        <p class="lede" style="font-size:1.08rem; line-height:1.7; color:var(--ink); margin-bottom:18px;">
+          For His Purpose events are sacred, intentional spaces designed for women to pause, worship wholeheartedly, dive deep into Scripture, and build lifelong, Christ-centred relationships.
+        </p>
+        <p style="font-size:.98rem; line-height:1.75; color:var(--ink-soft); margin-bottom:24px;">
+          Whether through our weekly virtual Bible studies or our in-person brunches and conferences, every gathering is an invitation to encounter God afresh and walk boldly in your calling.
+        </p>
+        <div class="btn-row" style="gap:12px;">
+          <a href="https://chat.whatsapp.com/HJKpLejZpHwIWruU39QzGE?s=cl&p=i&mlu=4&ilr=4&iam=2" target="_blank" rel="noopener" class="btn btn-clay">
+            Join WhatsApp for Event Updates &rarr;
+          </a>
+          <a href="#gatherings" class="btn btn-outline">Explore Calendar &darr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PAST -->
+  <!-- UPCOMING GATHERINGS -->
+  <section class="section" id="gatherings">
+    <div class="container">
+      <div class="center mb-lg">
+        <span class="eyebrow">Calendar &amp; Gatherings</span>
+        <h2>Where We Gather</h2>
+        <p class="lede">Stay connected with our upcoming virtual sessions and physical city gatherings.</p>
+      </div>
+
+      <div class="grid-3 mt-lg" id="eventsGrid">
+        <!-- Event 1: Weekly Bible Study -->
+        <div class="card reveal" style="display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="tag-pill">Weekly Virtual</span>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--pink);">Google Meet</span>
+          </div>
+          <h3 style="font-size:1.2rem; margin-bottom:8px;">Women's Bible Study</h3>
+          <p style="font-size:0.88rem; font-weight:600; color:var(--pink-deep); margin-bottom:10px;">Every Tuesday &middot; 7:00 PM WAT</p>
+          <p style="font-size:0.92rem; color:var(--ink-soft); line-height:1.6; margin-bottom:20px; flex:1;">
+            Our weekly virtual gathering to study Scripture verse-by-verse, share honest questions, and pray for one another. Open to all women.
+          </p>
+          <a href="bible-study.html" class="btn btn-sm btn-outline" style="align-self:flex-start;">Learn More &rarr;</a>
+        </div>
+
+        <!-- Event 2: Upcoming Physical Gathering -->
+        <div class="card reveal" style="display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="tag-pill" style="background:#FFF3E0; color:#E65100;">Coming Soon</span>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--ink-soft);">In-Person</span>
+          </div>
+          <h3 style="font-size:1.2rem; margin-bottom:8px;">City Sisterhood Gathering</h3>
+          <p style="font-size:0.88rem; font-weight:600; color:var(--pink-deep); margin-bottom:10px;">Date &amp; Venue to be Announced</p>
+          <p style="font-size:0.92rem; color:var(--ink-soft); line-height:1.6; margin-bottom:20px; flex:1;">
+            A physical gathering of worship, practical teaching, curated brunch, and sisterhood networking. Full details will be announced by our founder.
+          </p>
+          <a href="newsletter.html" class="btn btn-sm btn-clay" style="align-self:flex-start;">Get Notified First &rarr;</a>
+        </div>
+
+        <!-- Event 3: Monthly Prayer Encounter -->
+        <div class="card reveal" style="display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="tag-pill">Monthly</span>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--pink);">Intercession</span>
+          </div>
+          <h3 style="font-size:1.2rem; margin-bottom:8px;">Monthly Prayer &amp; Word Night</h3>
+          <p style="font-size:0.88rem; font-weight:600; color:var(--pink-deep); margin-bottom:10px;">First Saturday of Each Month &middot; Virtual</p>
+          <p style="font-size:0.92rem; color:var(--ink-soft); line-height:1.6; margin-bottom:20px; flex:1;">
+            An evening set apart for personal consecration, spiritual warfare, and seeking the Lord's presence for the month ahead.
+          </p>
+          <a href="prayer-hub.html" class="btn btn-sm btn-outline" style="align-self:flex-start;">Visit Prayer Page &rarr;</a>
+        </div>
+      </div>
+
+      <!-- FOUNDER'S NOTICE PLACEHOLDER BOX -->
+      <div class="reveal" style="background:var(--white); border:1px dashed var(--pink); border-radius:18px; padding:28px 32px; margin-top:40px; text-align:center;">
+        <span style="display:inline-block; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--pink-deep); margin-bottom:8px;">Calendar Update In Progress</span>
+        <h4 style="font-size:1.15rem; color:var(--ink); margin-bottom:8px;">Upcoming Events &amp; City Schedules</h4>
+        <p style="font-size:0.95rem; color:var(--ink-soft); max-width:640px; margin:0 auto 16px; line-height:1.65;">
+          Our founder and event leadership team are currently finalizing upcoming gathering dates, registration links, and city itineraries. As soon as the founder shares the updates, they will appear right here on this page.
+        </p>
+        <a href="https://chat.whatsapp.com/HJKpLejZpHwIWruU39QzGE?s=cl&p=i&mlu=4&ilr=4&iam=2" target="_blank" rel="noopener" class="btn btn-sm btn-clay">
+          Join WhatsApp Sisterhood to Stay In the Loop &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST GATHERINGS & GALLERY -->
   <section class="section section-alt">
     <div class="container">
       <div class="center mb-lg">
-        <span class="eyebrow">Where We've Been</span>
-        <h2>Past Events</h2>
+        <span class="eyebrow">Past Highlights</span>
+        <h2>Where God Has Moved</h2>
+        <p class="lede">A glimpse into previous For His Purpose gatherings and sisterhood moments.</p>
       </div>
-      <div class="grid-3 mt-lg" id="pastEvents">
-        <div class="card reveal">
-          <h3>Bayelsa State Gathering</h3>
-          <p>Sisterhood &middot; Bayelsa, Nigeria</p>
+
+      <div class="grid-3 mt-lg">
+        <div class="card-photo reveal">
+          <div class="card-img" style="aspect-ratio:4/3;">
+            <img src="images/group-photo.jpg" alt="Lagos Bible Study Brunch Group" style="object-fit:cover;">
+          </div>
+          <div class="card-body">
+            <h3>Lagos Bible Study Brunch</h3>
+            <p style="font-size:0.85rem; color:var(--pink-deep); font-weight:600; margin-bottom:6px;">Lagos, Nigeria</p>
+            <p>A memorable morning of worship, fellowship, open Bibles, and sisterhood connection.</p>
+          </div>
+        </div>
+
+        <div class="card-photo reveal">
+          <div class="card-img" style="aspect-ratio:4/3;">
+            <img src="images/features/events.jpg" alt="Worship and Prayer Encounters" style="object-fit:cover;">
+          </div>
+          <div class="card-body">
+            <h3>Sisterhood Worship Encounters</h3>
+            <p style="font-size:0.85rem; color:var(--pink-deep); font-weight:600; margin-bottom:6px;">Worship &middot; Prayer &middot; Surrender</p>
+            <p>Women stepping into pure worship, seeking God's heart, and lifting one another up in prayer.</p>
+          </div>
+        </div>
+
+        <div class="card-photo reveal">
+          <div class="card-img" style="aspect-ratio:4/3;">
+            <img src="images/features/community.jpg" alt="Community Table Fellowship" style="object-fit:cover;">
+          </div>
+          <div class="card-body">
+            <h3>Table Fellowship &amp; Sisterhood</h3>
+            <p style="font-size:0.85rem; color:var(--pink-deep); font-weight:600; margin-bottom:6px;">Fellowship &middot; Mentorship</p>
+            <p>Sharing meals, sharing testimonies, and building authentic kingdom friendships.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GALLERY DRIVE LINK -->
+      <div class="cta-band mt-lg" style="margin-top:48px;">
+        <h2>See Our Event Photo Gallery</h2>
+        <p class="lede">Browse full-resolution photos and video moments from all our gatherings.</p>
+        <div class="btn-row center" style="margin-top:24px;">
+          <a href="https://drive.google.com/drive/folders/1WKShqIO-j1NxWFDfS20rlRg8ZdLoknJ5?usp=sharing" class="btn btn-clay" id="galleryDriveLink" target="_blank" rel="noopener">Browse Full Gallery on Google Drive &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY LINK-OUT -->
-  <section class="section-tight">
-    <div class="cta-band">
-      <h2>See the photos and videos.</h2>
-      <p class="lede">Every gathering, all in one place.</p>
+  <!-- PROPOSE GATHERING CTA -->
+  <section class="section">
+    <div class="container center" style="max-width:700px;">
+      <span class="eyebrow">Host in Your City</span>
+      <h2>Bring For His Purpose to Your Community</h2>
+      <p class="lede">Interested in hosting a Bible study circle or sisterhood gathering in your city, campus, or church?</p>
       <div class="btn-row center" style="margin-top:24px;">
-        <!-- TEGA: replace this href with the real Google Drive folder link once the founder sends it. Set the folder's sharing to "Anyone with the link can view". -->
-        <a href="https://drive.google.com/drive/folders/1WKShqIO-j1NxWFDfS20rlRg8ZdLoknJ5?usp=sharing" class="btn btn-clay" id="galleryDriveLink" target="_blank" rel="noopener">See Our Gallery</a>
+        <a href="contact.html" class="btn btn-clay">Contact Our Events Team &rarr;</a>
       </div>
     </div>
   </section>

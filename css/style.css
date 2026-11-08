@@ -716,3 +716,275 @@ body.dark-mode .meeting-callout{
 .testimony-location{
   font-size: .8rem; color: var(--ink-soft); display: block; font-weight: 400; margin-top: 2px;
 }
+
+/* ================= EDITORIAL STATEMENT SHOWCASE (About Us) ================= */
+.statement-showcase {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 48px 42px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.04);
+}
+.showcase-header { text-align: center; margin-bottom: 34px; }
+.showcase-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  background: var(--pink-soft);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+.showcase-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.25rem);
+  color: var(--ink);
+  margin: 0 0 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.showcase-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.showcase-divider span.line {
+  height: 1.5px;
+  width: 44px;
+  background: var(--pink);
+  opacity: 0.35;
+}
+.showcase-divider span.star {
+  color: var(--pink);
+  font-size: 0.9rem;
+}
+.statement-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.statement-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--pink);
+  border-radius: 14px;
+  padding: 22px 26px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.statement-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.statement-card.highlight {
+  background: var(--pink-soft);
+  border-left-color: var(--pink-deep);
+  border-color: rgba(217, 83, 131, 0.25);
+}
+.statement-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pink-deep);
+  margin-bottom: 10px;
+}
+.statement-tag::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pink);
+}
+.statement-text {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  font-family: var(--sans);
+  font-size: 1.06rem;
+  line-height: 1.85;
+  color: var(--ink);
+  margin: 0;
+}
+@media (max-width: 680px) {
+  .statement-showcase { padding: 32px 20px; border-radius: 18px; }
+  .statement-card { padding: 18px 18px; }
+  .statement-text { font-size: 0.98rem; line-height: 1.75; }
+}
+body.dark-mode .statement-showcase {
+  background: var(--white);
+  border-color: var(--line);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+}
+body.dark-mode .statement-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--line);
+  border-left-color: var(--pink);
+}
+body.dark-mode .statement-card.highlight {
+  background: rgba(217, 83, 131, 0.08);
+  border-left-color: var(--pink-deep);
+}
+
+
+/* ================= NAVIGATION DROPDOWN ================= */
+.nav-item-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-item-dropdown > .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-arrow {
+  font-size: 0.62rem;
+  transition: transform 0.2s ease;
+  opacity: 0.7;
+}
+.nav-item-dropdown:hover .nav-arrow {
+  transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 190px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-item-dropdown:hover .nav-dropdown-menu,
+.nav-item-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.dropdown-link {
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+.dropdown-link:hover,
+.dropdown-link.active {
+  background: var(--pink-soft);
+  color: var(--pink-deep);
+}
+body.dark-mode .nav-dropdown-menu {
+  background: var(--white);
+  border-color: var(--line);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+/* ================= SUBPAGE SWITCHER TABS (About Us & About Founder) ================= */
+.subpage-tabs-wrap {
+  display: flex;
+  justify-content: center;
+  margin: -10px auto 38px;
+  padding: 0 20px;
+}
+.subpage-tabs {
+  display: inline-flex;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: 5px;
+  border-radius: 999px;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.subpage-tab {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 24px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.subpage-tab:hover {
+  color: var(--ink);
+}
+.subpage-tab.active {
+  background: var(--pink);
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(217, 83, 131, 0.32);
+}
+body.dark-mode .subpage-tabs {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--line);
+}
+body.dark-mode .subpage-tab {
+  color: var(--ink-soft);
+}
+body.dark-mode .subpage-tab.active {
+  background: var(--pink);
+  color: #fff !important;
+}
+
+/* ================= FOUNDER PAGE ACCENTS ================= */
+.founder-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--pink-soft);
+  color: var(--pink-deep);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.founder-quote-banner {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--pink);
+  border-radius: 16px;
+  padding: 26px 30px;
+  margin: 32px 0 28px;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--ink);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+.founder-frame {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  border: 1px solid var(--line);
+}
+.founder-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
