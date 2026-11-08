@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 /* ===========================================================
    For His Purpose — Official Stylesheet
    Palette: Clean White/Black mode with signature Rose Pink accents
@@ -6,26 +7,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root{
-  --cream: #FFFFFF;
+  /* Founder Official Brand Palette */
+  --burgundy: #780024;
+  --burgundy-deep: #5A001B;
+  --burgundy-light: #940B32;
+  --warm-ivory: #FAF7F2;
+  --section-alt: #F1E9E3;
+  --champagne: #E8C5A9;
+  --champagne-soft: #F7EFE8;
+  --charcoal: #292526;
+  --muted-rose: #C99D98;
   --white: #FFFFFF;
-  --bg-subtle: #FCF8FA;
-  --ink: #141215;
-  --ink-soft: #554D52;
-  --pink: #D95383;
-  --pink-deep: #B53564;
-  --pink-soft: #FDF1F5;
-  --pink-mid: #E87A9D;
-  --clay: var(--pink);
-  --clay-deep: var(--pink-deep);
-  --clay-soft: var(--pink-soft);
-  --clay-mid: var(--pink-mid);
-  --line: #F2E3E9;
-  --shadow: 0 12px 32px rgba(217, 83, 131, 0.08);
+  --caption: #817578;
+  --highlight: #B77B55;
+
+  /* Theme Mappings */
+  --bg: var(--warm-ivory);
+  --bg-subtle: var(--section-alt);
+  --cream: var(--warm-ivory);
+  --ink: var(--burgundy);
+  --ink-body: var(--charcoal);
+  --ink-soft: var(--caption);
+  --pink: var(--burgundy);
+  --pink-deep: var(--burgundy-deep);
+  --pink-soft: var(--champagne-soft);
+  --pink-mid: var(--muted-rose);
+  --clay: var(--burgundy);
+  --clay-deep: var(--burgundy-deep);
+  --clay-soft: var(--champagne-soft);
+  --clay-mid: var(--muted-rose);
+  --line: rgba(120, 0, 36, 0.12);
+  --shadow: 0 12px 32px rgba(41, 37, 38, 0.06);
   --radius: 18px;
   --maxw: 1180px;
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Founder Official Typography */
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 *,*::before,*::after{ box-sizing: border-box; }
@@ -987,4 +1006,35 @@ body.dark-mode .subpage-tab.active {
   height: auto;
   display: block;
   object-fit: cover;
+}
+
+
+/* Founder Refinement: No pink gradients on cta-band */
+.cta-band {
+  background: var(--burgundy) !important;
+  color: #FFFFFF !important;
+  border-radius: var(--radius);
+}
+.cta-band h2 {
+  color: #FFFFFF !important;
+}
+.cta-band p, .cta-band .lede {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+.cta-band .btn-primary {
+  background: #FFFFFF !important;
+  color: var(--burgundy) !important;
+  border-color: #FFFFFF !important;
+}
+.cta-band .btn-primary:hover {
+  background: var(--champagne-soft) !important;
+  color: var(--burgundy-deep) !important;
+}
+.cta-band .btn-outline {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #FFFFFF !important;
+}
+.cta-band .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
 }
